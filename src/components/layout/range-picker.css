@@ -1,0 +1,61 @@
+/* The date range control in the top bar. */
+.range-picker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: var(--space-2);
+  margin-left: auto;
+}
+.range-picker__preset {
+  position: relative;
+}
+/* The calendar icon sits inside the select's left padding. pointer-events: none lets clicks reach the select. */
+.range-picker__icon {
+  position: absolute;
+  top: 50%;
+  left: var(--space-3);
+  color: var(--text-muted);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+.range-picker .select {
+  padding-left: 38px;
+}
+
+.custom-range {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--space-2);
+}
+.custom-range__field {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  color: var(--text-2);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+}
+.custom-range__field .input {
+  font-size: var(--text-sm);
+}
+
+/* Phones: the custom fields take a full row under the menu button and the brand. */
+@media (max-width: 639px) {
+  .range-picker,
+  .custom-range {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .range-picker {
+    margin-left: 0;
+  }
+  .range-picker__preset,
+  .range-picker .select {
+    width: 100%;
+  }
+  .custom-range__field {
+    flex: 1 1 130px;
+  }
+}

@@ -1,0 +1,56 @@
+/* Below 1024px the sidebar becomes a drawer that slides in over the page. */
+@media (max-width: 1023px) {
+  .app {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
+    z-index: 30;
+    width: min(280px, 85vw);
+    height: auto;
+    transform: translateX(-100%);
+    /* visibility: hidden removes the closed menu from the Tab order.
+       It switches only after the slide ends, so the closing animation stays visible. */
+    visibility: hidden;
+    transition:
+      transform 200ms ease,
+      visibility 0s linear 200ms;
+  }
+  .sidebar.is-open {
+    transform: none;
+    visibility: visible;
+    box-shadow: 0 12px 40px rgb(0 0 0 / 0.25);
+    transition: transform 200ms ease;
+  }
+
+  .sidebar-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    background: rgb(15 16 18 / 0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 200ms ease;
+  }
+  .sidebar-backdrop.is-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .topbar,
+  .footer {
+    padding-inline: var(--space-4);
+  }
+  .app__main {
+    padding: var(--space-5) var(--space-4);
+  }
+}
+
+/* Phones: no room for the data note next to the brand and the date range. */
+@media (max-width: 639px) {
+  .topbar__note {
+    display: none;
+  }
+}

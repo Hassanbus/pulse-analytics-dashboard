@@ -6,6 +6,18 @@
     <title>Pulse — Analytics Dashboard</title>
     <meta name="description" content="Pulse is an analytics dashboard demo for a fictional online store: KPIs, charts, orders and products. Built with React, Vite and Recharts." />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script>
+      // Choose the theme before the page is drawn, so dark mode users never see a white flash.
+      // React reads the same saved setting later (src/settings/storage.js).
+      try {
+        var saved = JSON.parse(localStorage.getItem('pulse-settings') || '{}') || {}
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+        var theme = saved.theme === 'dark' || saved.theme === 'light' ? saved.theme : prefersDark ? 'dark' : 'light'
+        document.documentElement.dataset.theme = theme
+      } catch (error) {
+        document.documentElement.dataset.theme = 'light'
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

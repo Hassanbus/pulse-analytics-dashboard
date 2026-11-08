@@ -1,0 +1,84 @@
+/* The page frame: sidebar, top bar, main content and footer. */
+.app {
+  display: grid;
+  grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+  min-height: 100vh;
+}
+
+/* Hidden until a keyboard user presses Tab on a new page. */
+.skip-link {
+  position: absolute;
+  top: var(--space-3);
+  left: var(--space-3);
+  z-index: 100;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--accent-bg);
+  color: #fff;
+  transform: translateY(-300%);
+}
+.skip-link:focus {
+  transform: none;
+}
+
+.app__body {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  min-height: 64px;
+  padding: var(--space-3) var(--space-6);
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+.topbar__start {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+.topbar__note {
+  color: var(--text-muted);
+  font-size: var(--text-xs);
+}
+.app__main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-5);
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: var(--space-6);
+}
+.app__main:focus {
+  outline: none; /* main gets focus by code after a page change; it is not a control */
+}
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-6);
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: var(--text-xs);
+}
+
+/* Desktop: the sidebar is always visible, so the drawer controls are not needed. */
+@media (min-width: 1024px) {
+  .menu-button,
+  .sidebar__close,
+  .sidebar-backdrop,
+  .topbar__brand {
+    display: none;
+  }
+}
