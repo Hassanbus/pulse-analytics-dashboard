@@ -43,6 +43,11 @@ export function formatChange(value) {
   return formatter(Intl.NumberFormat, options).format(value)
 }
 
+// 'refunded' -> 'Refunded'
+export function formatStatus(status) {
+  return status.charAt(0).toUpperCase() + status.slice(1)
+}
+
 const FULL_DATE = { timeZone: 'UTC', month: 'short', day: 'numeric', year: 'numeric' }
 
 // '2026-10-31' -> 'Oct 31, 2026'

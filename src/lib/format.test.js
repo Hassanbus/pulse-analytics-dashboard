@@ -22,6 +22,10 @@ describe('numbers and percents', () => {
     expect(f.formatPercent(0.053)).toBe('5.3%')
   })
 
+  it('starts a status with a capital letter', () => {
+    expect(f.formatStatus('refunded')).toBe('Refunded')
+  })
+
   it('always shows the sign of a change, except for zero', () => {
     expect(f.formatChange(0.123)).toBe('+12.3%')
     expect(f.formatChange(-0.04)).toBe('-4.0%')

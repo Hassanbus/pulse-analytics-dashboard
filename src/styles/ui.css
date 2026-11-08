@@ -78,6 +78,23 @@
   background: var(--surface-2);
   color: var(--text);
 }
+.icon-button:disabled {
+  background: transparent;
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* A form field: a small label above its input or dropdown. */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+.field__label {
+  color: var(--text-2);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+}
 
 .input,
 .select {

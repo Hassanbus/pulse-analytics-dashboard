@@ -41,6 +41,9 @@
 .table .muted {
   color: var(--text-muted);
 }
+.table .nowrap {
+  white-space: nowrap;
+}
 .rank {
   display: inline-grid;
   place-items: center;
