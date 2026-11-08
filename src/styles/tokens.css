@@ -1,0 +1,99 @@
+/*
+  Design tokens: every color, size and space the app uses lives here.
+  Components only use these variables, so a change of look (or dark mode) happens in one place.
+  All text colors were checked for WCAG AA contrast (4.5:1) in both themes.
+*/
+:root {
+  color-scheme: light;
+
+  /* Spacing scale: 4px steps keep gaps consistent everywhere. */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+
+  /* Type scale: a few fixed sizes instead of random ones. */
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --text-xs: 0.75rem; /* 12px: captions, axis labels */
+  --text-sm: 0.875rem; /* 14px: normal app text */
+  --text-md: 1rem; /* 16px: card titles */
+  --text-lg: 1.25rem; /* 20px: section titles */
+  --text-xl: 1.75rem; /* 28px: page titles, KPI values */
+  --weight-medium: 500;
+  --weight-semibold: 600;
+
+  /* Shapes */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --shadow-card: 0 1px 2px rgb(16 24 40 / 0.05), 0 1px 3px rgb(16 24 40 / 0.06);
+  --sidebar-width: 240px;
+
+  /* Light theme colors */
+  --bg: #f5f6f8;
+  --surface: #ffffff;
+  --surface-2: #eef0f3;
+  --border: #e3e5ea;
+  --border-strong: #8c909a; /* form fields: 3:1 against the card */
+  --text: #111318;
+  --text-2: #454953;
+  --text-muted: #61656f;
+  --accent-bg: #256abf;
+  --accent-bg-hover: #1c5cab;
+  --accent-text: #1c5cab;
+  --accent-soft: #e7f0fb;
+  --focus: #256abf;
+  --positive: #006300;
+  --negative: #c22f2f;
+
+  /* Chart colors: a colorblind-safe order, checked with a palette validator. */
+  --chart-1: #2a78d6;
+  --chart-2: #eb6834;
+  --chart-3: #1baf7a;
+  --chart-4: #eda100;
+  --chart-5: #e87ba4;
+  --chart-grid: #e6e8ec;
+  --chart-axis: #c3c6cc;
+
+  /* Status dots. They are always shown next to a text label, never alone. */
+  --status-good: #0ca30c;
+  --status-warning: #fab219;
+  --status-serious: #ec835a;
+  --status-neutral: #898781;
+
+  --skeleton-base: #eceef2;
+  --skeleton-shine: #f7f8fa;
+}
+
+/* Dark theme: the same roles with darker surfaces and lighter ink. */
+[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #0f1012;
+  --surface: #18191c;
+  --surface-2: #22242a;
+  --border: #2c2e34;
+  --border-strong: #6b7079;
+  --text: #eef0f3;
+  --text-2: #c3c7cf;
+  --text-muted: #9a9fa9;
+  --accent-bg: #256abf;
+  --accent-bg-hover: #1c5cab;
+  --accent-text: #7db0ee;
+  --accent-soft: #1b2a40;
+  --focus: #7db0ee;
+  --positive: #2fbf4a;
+  --negative: #ff8078;
+  --chart-1: #3987e5;
+  --chart-2: #d95926;
+  --chart-3: #199e70;
+  --chart-4: #c98500;
+  --chart-5: #d55181;
+  --chart-grid: #2a2c31;
+  --chart-axis: #3a3d44;
+  --skeleton-base: #212329;
+  --skeleton-shine: #2b2e35;
+  --shadow-card: none;
+}
