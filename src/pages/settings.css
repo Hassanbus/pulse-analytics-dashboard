@@ -1,0 +1,61 @@
+/* The Settings page: groups of options shown as selectable boxes. */
+.settings {
+  max-width: 760px;
+}
+
+/* Reset the browser's default fieldset frame: the card around it is the frame. */
+.option-group {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.option-group__legend {
+  padding: 0;
+  font-size: var(--text-md);
+  font-weight: var(--weight-semibold);
+}
+.option-group__hint {
+  margin-top: var(--space-1);
+  color: var(--text-muted);
+}
+.option-group__options {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+}
+
+/* The whole box is the label, so a click anywhere on it picks the option. */
+.option {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: 48px;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+}
+.option:hover {
+  background: var(--surface-2);
+}
+/* :has() styles the box when the radio inside it is checked. */
+.option:has(input:checked) {
+  border-color: var(--accent-bg);
+  background: var(--accent-soft);
+  box-shadow: inset 0 0 0 1px var(--accent-bg);
+}
+.option input {
+  flex: none; /* keep the radio round when the label wraps */
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: var(--accent-bg);
+}
+.option__example {
+  margin-left: auto;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
