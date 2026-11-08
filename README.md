@@ -4,7 +4,7 @@ Pulse is a front-end only analytics dashboard for a fictional online store.
 Every number on screen is computed in the browser from generated data:
 there is no backend, no database, no API key and no environment variable.
 
-**Live demo:** _the link is added after the first deployment._
+**Live demo:** [pulse-analytics-dashboard-dun.vercel.app](https://pulse-analytics-dashboard-dun.vercel.app)
 
 ![The Pulse overview page: KPI cards and a revenue chart](docs/screenshot.png)
 
