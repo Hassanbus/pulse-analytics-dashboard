@@ -8,6 +8,7 @@ import NotFoundPage from './pages/NotFoundPage.jsx'
 const OverviewPage = lazy(() => import('./pages/OverviewPage.jsx'))
 const OrdersPage = lazy(() => import('./pages/OrdersPage.jsx'))
 const ProductsPage = lazy(() => import('./pages/ProductsPage.jsx'))
+const ProductDetailsPage = lazy(() => import('./pages/ProductDetailsPage.jsx'))
 const SettingsPage = lazy(() => import('./pages/SettingsPage.jsx'))
 
 // The map of URLs to pages. All pages share AppLayout (sidebar, top bar, footer).
@@ -18,6 +19,7 @@ export default function App() {
         <Route index element={<OverviewPage />} />
         <Route path="orders" element={<OrdersPage />} />
         <Route path="products" element={<ProductsPage />} />
+        <Route path="products/:productId" element={<ProductDetailsPage />} />
         <Route path="settings" element={<SettingsPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>

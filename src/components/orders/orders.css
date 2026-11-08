@@ -1,4 +1,4 @@
-/* The Orders page: filter row, result count, status badges, sort buttons and pagination. */
+/* The Orders page: filter row and result count. */
 .filters {
   display: flex;
   flex-wrap: wrap;
@@ -24,59 +24,6 @@
   font-size: var(--text-xs);
 }
 
-.sort-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: var(--space-1) 0;
-  border: 0;
-  background: none;
-  color: inherit;
-  font: inherit;
-  cursor: pointer;
-}
-.sort-button:hover,
-.sort-button.is-active {
-  color: var(--text);
-}
-
-/* A colored dot plus the word. Colors come from the status palette in tokens.css. */
-.status {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  white-space: nowrap;
-}
-.status__dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--status-neutral);
-}
-.status--completed .status__dot {
-  background: var(--status-good);
-}
-.status--processing .status__dot {
-  background: var(--status-warning);
-}
-.status--refunded .status__dot {
-  background: var(--status-serious);
-}
-
-.pagination {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: var(--space-1);
-  margin-top: var(--space-4);
-}
-.pagination__status {
-  padding: 0 var(--space-3);
-  color: var(--text-2);
-  font-variant-numeric: tabular-nums;
-  white-space: nowrap;
-}
-
 /* Phones: every filter takes the full width, so the dropdowns are easy to tap. */
 @media (max-width: 639px) {
   .filters .field {
@@ -85,8 +32,5 @@
   .filters .select,
   .filters .button {
     width: 100%;
-  }
-  .pagination {
-    justify-content: center;
   }
 }

@@ -1,0 +1,22 @@
+/* A colored dot plus the word. Colors come from the status palette in tokens.css. */
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+.status__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--status-neutral);
+}
+.status--completed .status__dot {
+  background: var(--status-good);
+}
+.status--processing .status__dot {
+  background: var(--status-warning);
+}
+.status--refunded .status__dot {
+  background: var(--status-serious);
+}

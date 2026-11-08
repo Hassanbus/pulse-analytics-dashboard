@@ -56,10 +56,44 @@
   font-variant-numeric: tabular-nums;
 }
 
-/* Phones: smaller side padding, so more text fits in each cell. */
+/* Sort buttons in column headers and the page controls under a table. */
+.sort-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: var(--space-1) 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+.sort-button:hover,
+.sort-button.is-active {
+  color: var(--text);
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-1);
+  margin-top: var(--space-4);
+}
+.pagination__status {
+  padding: 0 var(--space-3);
+  color: var(--text-2);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* Phones: smaller side padding, so more text fits in each cell, and centered page controls. */
 @media (max-width: 639px) {
   .table th,
   .table td {
     padding-inline: var(--space-2);
+  }
+  .pagination {
+    justify-content: center;
   }
 }

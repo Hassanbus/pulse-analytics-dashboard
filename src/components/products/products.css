@@ -1,0 +1,86 @@
+/* The Products table and the product details page. */
+.products-table td {
+  white-space: nowrap;
+}
+.cell-sub {
+  display: block;
+  color: var(--text-muted);
+  font-size: var(--text-xs);
+}
+.trend-cell {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+.sparkline {
+  flex: 0 0 auto;
+}
+
+/* The trend word: color shows good or bad, the arrow and the word work without color. */
+.trend {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+}
+.trend--up {
+  color: var(--positive);
+}
+.trend--down {
+  color: var(--negative);
+}
+.trend--flat {
+  color: var(--text-muted);
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  width: fit-content;
+  font-weight: var(--weight-medium);
+  text-decoration: none;
+}
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.recent-orders {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.recent-orders__item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 2px var(--space-3);
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--border);
+}
+.recent-orders__item:last-child {
+  border-bottom: 0;
+}
+.recent-orders__meta {
+  color: var(--text-muted);
+  font-size: var(--text-xs);
+}
+.recent-orders__amount {
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+/* Phones: names may wrap and the trend word goes under the line, so most columns fit. */
+@media (max-width: 639px) {
+  .products-table .product-cell {
+    min-width: 132px;
+    white-space: normal;
+  }
+  .trend-cell {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+}
