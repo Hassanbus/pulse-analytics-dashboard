@@ -13,9 +13,11 @@ function formatter(Type, options) {
   return formatters.get(key)
 }
 
-// 1234.5 -> '$1,234.50'. The currency only changes the symbol (display only, no conversion).
-export function formatMoney(value, currency = 'USD') {
-  return formatter(Intl.NumberFormat, { style: 'currency', currency }).format(value)
+// 1234.5 -> '$1,234.50' (or '$1,235' with digits = 0).
+// The currency only changes the symbol (display only, no conversion).
+export function formatMoney(value, currency = 'USD', digits = 2) {
+  const options = { style: 'currency', currency, minimumFractionDigits: digits, maximumFractionDigits: digits }
+  return formatter(Intl.NumberFormat, options).format(value)
 }
 
 // Short money for KPI cards and chart axes: '$412.8K', '$1.5M'

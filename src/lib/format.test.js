@@ -6,6 +6,7 @@ describe('money', () => {
     expect(f.formatMoney(1234.5)).toBe('$1,234.50')
     expect(f.formatMoney(10, 'EUR')).toBe('€10.00')
     expect(f.formatMoney(10, 'EGP')).toContain('EGP')
+    expect(f.formatMoney(1234.5, 'USD', 0)).toBe('$1,235')
   })
 
   it('formats short amounts for cards and axes', () => {

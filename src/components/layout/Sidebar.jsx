@@ -25,37 +25,40 @@ export default function Sidebar({ open, onClose, onNavigate }) {
   return (
     <>
       <div className={`sidebar-backdrop${open ? ' is-open' : ''}`} onClick={onClose} aria-hidden="true" />
+      {/* The outer box fills the whole column height; the inner box sticks to the top while you scroll. */}
       <div id="sidebar" className={`sidebar${open ? ' is-open' : ''}`}>
-        <div className="sidebar__header">
-          <Logo />
-          <button
-            ref={closeButtonRef}
-            type="button"
-            className="icon-button sidebar__close"
-            aria-label="Close menu"
-            onClick={onClose}
-          >
-            <Icon name="close" />
-          </button>
+        <div className="sidebar__inner">
+          <div className="sidebar__header">
+            <Logo />
+            <button
+              ref={closeButtonRef}
+              type="button"
+              className="icon-button sidebar__close"
+              aria-label="Close menu"
+              onClick={onClose}
+            >
+              <Icon name="close" />
+            </button>
+          </div>
+          <nav aria-label="Main">
+            <ul className="nav-list">
+              {LINKS.map((link) => (
+                <li key={link.to}>
+                  {/* NavLink marks the current page with aria-current="page" (styled in sidebar.css). */}
+                  <NavLink
+                    to={{ pathname: link.to, search: rangeSearch }}
+                    end={link.to === '/'}
+                    className="nav-link"
+                    onClick={onNavigate}
+                  >
+                    <Icon name={link.icon} />
+                    {link.label}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
-        <nav aria-label="Main">
-          <ul className="nav-list">
-            {LINKS.map((link) => (
-              <li key={link.to}>
-                {/* NavLink marks the current page with aria-current="page" (styled in layout.css). */}
-                <NavLink
-                  to={{ pathname: link.to, search: rangeSearch }}
-                  end={link.to === '/'}
-                  className="nav-link"
-                  onClick={onNavigate}
-                >
-                  <Icon name={link.icon} />
-                  {link.label}
-                </NavLink>
-              </li>
-            ))}
-          </ul>
-        </nav>
       </div>
     </>
   )

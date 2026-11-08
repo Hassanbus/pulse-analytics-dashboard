@@ -1,0 +1,75 @@
+/* Chart cards, tooltips and the "Show data table" area. */
+.chart-card {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+/* Recharts draws axis labels as SVG text. CSS gives them our muted ink and equal-width
+   digits (tabular-nums), so numbers on an axis line up. CSS wins over SVG attributes. */
+.chart-card .recharts-cartesian-axis-tick-value {
+  fill: var(--text-muted);
+  font-size: var(--text-xs);
+  font-variant-numeric: tabular-nums;
+}
+.chart-card .chart-value {
+  fill: var(--text-2);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  font-variant-numeric: tabular-nums;
+}
+/* Recharts makes a chart focusable, so arrow keys can move the tooltip. Show where focus is. */
+.recharts-surface:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.chart-tooltip {
+  padding: var(--space-2) var(--space-3);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: 0 6px 20px rgb(0 0 0 / 0.12);
+  font-size: var(--text-xs);
+}
+.chart-tooltip__label {
+  margin-bottom: 2px;
+  color: var(--text-muted);
+}
+.chart-tooltip__row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.chart-tooltip__row strong {
+  color: var(--text);
+  font-size: var(--text-sm);
+  font-variant-numeric: tabular-nums;
+}
+.chart-tooltip__name {
+  color: var(--text-2);
+}
+/* A short line, not a box: the key only needs to point at the series color. */
+.chart-tooltip__key {
+  width: 12px;
+  height: 3px;
+  border-radius: 2px;
+}
+
+.chart-card__data {
+  margin-top: var(--space-4);
+}
+.chart-card__data summary {
+  width: fit-content;
+  color: var(--accent-text);
+  font-weight: var(--weight-medium);
+  cursor: pointer;
+}
+.chart-card__data[open] summary {
+  margin-bottom: var(--space-3);
+}
+.chart-card__data .table-scroll {
+  max-height: 320px;
+  overflow-y: auto;
+}

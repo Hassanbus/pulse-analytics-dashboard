@@ -1,0 +1,70 @@
+/* KPI cards: 2 columns on phones and tablets, 4 on desktop. */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+@media (min-width: 1024px) {
+  .kpi-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.kpi-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 0;
+  padding: var(--space-4) var(--space-5);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+.kpi-card__label {
+  color: var(--text-2);
+  font-weight: var(--weight-medium);
+}
+/* The value grows with the screen, between 22px and 28px. */
+.kpi-card__value {
+  font-size: clamp(1.375rem, 1rem + 1vw, 1.75rem);
+  font-weight: var(--weight-semibold);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+.kpi-card__change {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px var(--space-2);
+  margin-top: var(--space-1);
+  font-size: var(--text-xs);
+}
+
+.change {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  font-weight: var(--weight-semibold);
+}
+.change--good {
+  color: var(--positive);
+}
+.change--bad {
+  color: var(--negative);
+}
+.change--neutral,
+.change--none,
+.change__context {
+  color: var(--text-muted);
+  font-weight: var(--weight-medium);
+}
+
+@media (max-width: 639px) {
+  .kpi-grid {
+    gap: var(--space-3);
+  }
+  .kpi-card {
+    padding: var(--space-3) var(--space-4);
+  }
+}
