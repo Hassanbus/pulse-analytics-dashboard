@@ -25,10 +25,11 @@ export default class ErrorBoundary extends Component {
           as="h1"
           icon="alert"
           title="Something went wrong"
-          message="This page hit an unexpected error. Try again, or open another page from the menu."
+          message="This page hit an unexpected error. Reload the page, or open another page from the menu."
         >
-          <button type="button" className="button" onClick={() => this.setState({ error: null })}>
-            Try again
+          {/* A reload is safe: the dates and filters live in the URL, so the same view comes back. */}
+          <button type="button" className="button" onClick={() => window.location.reload()}>
+            Reload page
           </button>
         </EmptyState>
       </div>

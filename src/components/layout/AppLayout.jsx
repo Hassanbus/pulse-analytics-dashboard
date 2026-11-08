@@ -1,9 +1,10 @@
-import { useRef } from 'react'
+import { Suspense, useRef } from 'react'
 import { Outlet } from 'react-router'
 import { useDrawer } from '../../hooks/useDrawer.js'
 import { useRouteFocus } from '../../hooks/useRouteFocus.js'
 import { useSimulatedLoading } from '../../hooks/useSimulatedLoading.js'
 import ErrorBoundary from '../ui/ErrorBoundary.jsx'
+import PageSkeleton from '../ui/PageSkeleton.jsx'
 import Footer from './Footer.jsx'
 import Sidebar from './Sidebar.jsx'
 import TopBar from './TopBar.jsx'
@@ -28,9 +29,12 @@ export default function AppLayout() {
       <div className="app__body" inert={drawer.open}>
         <TopBar menuOpen={drawer.open} onMenuClick={drawer.toggle} menuButtonRef={drawer.buttonRef} />
         <main id="main" ref={mainRef} className="app__main" tabIndex={-1}>
-          {/* A new key per page resets the error boundary when you move to another page. */}
+          {/* A new key per page resets the error boundary when you move to another page.
+              Suspense shows the skeleton while the code of a page is still downloading. */}
           <ErrorBoundary key={pathname}>
-            <Outlet context={{ loading }} />
+            <Suspense fallback={<PageSkeleton />}>
+              <Outlet context={{ loading }} />
+            </Suspense>
           </ErrorBoundary>
         </main>
         <Footer />

@@ -1,10 +1,14 @@
+import { lazy } from 'react'
 import { Route, Routes } from 'react-router'
 import AppLayout from './components/layout/AppLayout.jsx'
 import NotFoundPage from './pages/NotFoundPage.jsx'
-import OrdersPage from './pages/OrdersPage.jsx'
-import OverviewPage from './pages/OverviewPage.jsx'
-import ProductsPage from './pages/ProductsPage.jsx'
-import SettingsPage from './pages/SettingsPage.jsx'
+
+// Each page is downloaded only when it is opened for the first time ("code splitting").
+// The chart library is large, so pages without charts load faster this way.
+const OverviewPage = lazy(() => import('./pages/OverviewPage.jsx'))
+const OrdersPage = lazy(() => import('./pages/OrdersPage.jsx'))
+const ProductsPage = lazy(() => import('./pages/ProductsPage.jsx'))
+const SettingsPage = lazy(() => import('./pages/SettingsPage.jsx'))
 
 // The map of URLs to pages. All pages share AppLayout (sidebar, top bar, footer).
 export default function App() {
